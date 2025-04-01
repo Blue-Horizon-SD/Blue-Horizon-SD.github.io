@@ -168,23 +168,88 @@
         /* Enhanced Mobile Navigation */
         .mobile-nav-toggle {
             display: none;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1003;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 10px;
-            border-radius: 50%;
+            background: transparent;
+            border: none;
             cursor: pointer;
-            backdrop-filter: blur(10px);
-            transition: all var(--transition-normal);
+            padding: 10px;
+            z-index: 1001;
         }
 
-        .mobile-nav-toggle:hover {
-            background: var(--white);
-            color: var(--accent-color);
-            transform: scale(1.1);
+        .mobile-nav-toggle .hamburger {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #333;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-toggle .hamburger::before,
+        .mobile-nav-toggle .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-toggle .hamburger::before {
+            top: -8px;
+        }
+
+        .mobile-nav-toggle .hamburger::after {
+            bottom: -8px;
+        }
+
+        /* Active state for hamburger menu */
+        .mobile-nav-toggle.active .hamburger {
+            background: transparent;
+        }
+
+        .mobile-nav-toggle.active .hamburger::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .mobile-nav-toggle.active .hamburger::after {
+            transform: rotate(-45deg);
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 80px; /* Adjust based on your header height */
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu a {
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* RTL Support for mobile menu */
+        [dir="rtl"] .mobile-nav-toggle {
+            margin-left: 0;
+            margin-right: auto;
         }
 
         /* Scroll to Top Button */
@@ -2512,6 +2577,175 @@
         .fas::before, .fab::before, .far::before, .fa::before {
             outline: 1px solid rgba(255, 0, 0, 0.2);
         }
+
+        /* Header container */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        /* Header content wrapper */
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Logo styles */
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Navigation menu */
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Media queries for responsive design */
+        @media screen and (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            /* Adjust header padding for mobile */
+            .header {
+                padding: 0.5rem;
+            }
+
+            /* Adjust logo size for mobile */
+            .logo {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* RTL support */
+        [dir="rtl"] .header-content {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .nav-menu {
+            flex-direction: row-reverse;
+        }
+
+        @media screen and (max-width: 768px) {
+            [dir="rtl"] .nav-menu {
+                flex-direction: column;
+                right: 0;
+                left: 0;
+            }
+        }
+
+        /* Mobile Navigation Styles */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-nav-toggle {
+                display: block;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+
+            .nav-menu.show {
+                display: flex;
+            }
+
+            .nav-menu a {
+                padding: 1rem;
+                width: 100%;
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-menu a:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* RTL support */
+        [dir="rtl"] .mobile-nav-toggle {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        /* Update header background color */
+        .header {
+            background-color: #21267e !important;
+        }
+
+        /* Ensure text is visible against dark background */
+        .nav-menu li a {
+            color: #ffffff;
+        }
+
+        /* Update language switcher colors if needed */
+        .language-btn {
+            color: #ffffff;
+        }
+    </style>
+</head>
     </style>
 </head>
 <body>
@@ -2531,19 +2765,24 @@
     </div>
 
     <header>
-        <div class="header-content">
-            <a href="#" class="logo">
-                <img src="blue_horizon_logo.png" alt="Blue Horizon Logo">
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#home"><span class="en">Home</span><span class="ar" style="display: none;">الرئيسية</span></a></li>
-                    <li><a href="#destinations"><span class="en">Destinations</span><span class="ar" style="display: none;">الوجهات</span></a></li>
-                    <li><a href="#airlines"><span class="en">Airlines</span><span class="ar" style="display: none;">شركات الطيران</span></a></li>
-                    <li><a href="#testimonials"><span class="en">Testimonials</span><span class="ar" style="display: none;">آراء العملاء</span></a></li>
-                    <li><a href="#contact"><span class="en">Contact</span><span class="ar" style="display: none;">اتصل بنا</span></a></li>
-                </ul>
-            </nav>
+        <div class="header">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <img src="blue_horizon_logo.png" alt="Blue Horizon Logo">
+                </a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home"><span class="en">Home</span><span class="ar" style="display: none;">الرئيسية</span></a></li>
+                        <li><a href="#destinations"><span class="en">Destinations</span><span class="ar" style="display: none;">الوجهات</span></a></li>
+                        <li><a href="#airlines"><span class="en">Airlines</span><span class="ar" style="display: none;">شركات الطيران</span></a></li>
+                        <li><a href="#testimonials"><span class="en">Testimonials</span><span class="ar" style="display: none;">آراء العملاء</span></a></li>
+                        <li><a href="#contact"><span class="en">Contact</span><span class="ar" style="display: none;">اتصل بنا</span></a></li>
+                    </ul>
+                </nav>
+                <!-- <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button> -->
+            </div>
         </div>
     </header>
 
@@ -3327,6 +3566,42 @@
             // Force initial icon rendering
             if (typeof FontAwesome !== 'undefined') {
                 FontAwesome.dom.i2svg();
+            }
+        });
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (mobileMenuBtn && navMenu) {
+                // Replace the button content with a menu icon
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+
+                mobileMenuBtn.addEventListener('click', function() {
+                    // Toggle the menu
+                    navMenu.classList.toggle('show');
+                    
+                    // Toggle the icon between bars and times (x)
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('fa-bars')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                        navMenu.classList.remove('show');
+                        const icon = mobileMenuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
             }
         });
     </script>
