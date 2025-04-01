@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Add lang and dir attributes to html tag -->
+    <script>
+        // Set initial language before the page loads
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blue Horizon - Your trusted partner for booking international flights from Sudan. Find the best deals on flights to destinations worldwide.">
@@ -13,7 +19,8 @@
     <meta property="og:url" content="https://bluehorizon.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -2324,6 +2331,187 @@
         }
 
         /* ... existing code ... */
+
+        /* Add these CSS rules to fix icon display in RTL mode */
+        [dir="rtl"] .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 8px;
+        }
+
+        [dir="rtl"] .icon {
+            margin-left: 8px;
+            margin-right: 0;
+        }
+
+        /* Ensure icons are always visible regardless of direction */
+        .icon {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        /* Fix for feature icons in RTL */
+        [dir="rtl"] .feature-icon {
+            margin-left: 15px;
+        }
+
+        /* Add these CSS rules to ensure icons are always visible */
+        .fas, .fab, .far, .fa {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        /* Fix icon spacing in RTL mode */
+        [dir="rtl"] .icon-wrapper {
+            display: inline-flex !important;
+            align-items: center;
+        }
+
+        [dir="rtl"] .feature-item {
+            display: flex !important;
+            align-items: center;
+        }
+
+        [dir="rtl"] .contact-item {
+            display: flex !important;
+            align-items: center;
+        }
+
+        /* Adjust icon margins in RTL */
+        [dir="rtl"] .icon-wrapper i,
+        [dir="rtl"] .feature-item i,
+        [dir="rtl"] .contact-item i {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+
+        /* Ensure feature icons are visible */
+        .feature-icon {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        /* Remove existing RTL icon rules and add these new rules */
+        
+        /* Make icons independent of text direction */
+        .icon-wrapper {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            /* Remove any rotation or transform effects */
+            transform: none !important;
+        }
+
+        /* Reset feature icons */
+        .feature-icon {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            margin: 0 8px;
+            /* Remove rotation animations */
+            animation: none !important;
+            transform: none !important;
+        }
+
+        /* Reset contact icons */
+        .contact-item i {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            margin: 0 8px;
+            /* Remove rotation effects */
+            transform: none !important;
+        }
+
+        /* Remove hover rotations */
+        .feature-card:hover .feature-icon,
+        .contact-item:hover i,
+        .btn:hover i {
+            transform: none !important;
+        }
+
+        /* Basic spacing for icons */
+        i.fas, i.fab, i.far, i.fa {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            margin: 0 8px;
+        }
+
+        /* Basic icon visibility rules */
+        .fas, .fab, .far, .fa {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        /* Basic flex container rules */
+        .icon-wrapper, .feature-item, .contact-item {
+            display: flex !important;
+            align-items: center;
+        }
+
+        /* Basic icon spacing */
+        .icon-wrapper i,
+        .feature-item i,
+        .contact-item i {
+            margin: 0 10px;
+        }
+
+        /* RTL specific margin adjustments */
+        [dir="rtl"] .icon-wrapper i,
+        [dir="rtl"] .feature-item i,
+        [dir="rtl"] .contact-item i {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+
+        /* Base icon styles - should apply regardless of direction */
+        .fas, .fab, .far, .fa, .fa-solid, .fa-regular, .fa-brands {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            /* Reset any transforms */
+            transform: none !important;
+            /* Ensure proper font loading */
+            font-weight: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Specific weight for solid icons */
+        .fas, .fa-solid {
+            font-weight: 900 !important;
+        }
+
+        /* Container styles that work in both directions */
+        .icon-wrapper, .feature-item, .contact-item {
+            display: flex !important;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* RTL specific adjustments */
+        [dir="rtl"] .icon-wrapper,
+        [dir="rtl"] .feature-item,
+        [dir="rtl"] .contact-item {
+            direction: rtl;
+        }
+
+        /* Debug outline to check icon containers */
+        .fas::before, .fab::before, .far::before, .fa::before {
+            outline: 1px solid rgba(255, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -2339,7 +2527,7 @@
 
     <div class="language-switcher">
         <button class="language-btn" onclick="changeLanguage('en')">EN</button>
-        <button class="language-btn active" onclick="changeLanguage('ar')">عربي</button>
+        <button class="language-btn active" onclick="changeLanguage('ar')" id="arButton">عربي</button>
     </div>
 
     <header>
@@ -2880,110 +3068,83 @@
             lastScroll = currentScroll;
         });
 
-        // Set Arabic as default language on page load
+        // Initialize language settings on page load
         document.addEventListener('DOMContentLoaded', function() {
-            changeLanguage('ar');
+            // Ensure icons are visible on initial load
+            document.querySelectorAll('.fas, .fab, .far, .fa, .feature-icon').forEach(icon => {
+                icon.style.display = 'inline-block';
+                icon.style.visibility = 'visible';
+                icon.style.opacity = '1';
+            });
+
+            // Set Arabic as default and show Arabic content
+            document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.ar').forEach(el => {
+                el.style.display = 'inline';
+                el.style.opacity = '1';
+            });
+            
+            // Set active state for Arabic button
+            document.getElementById('arButton').classList.add('active');
+            
+            // Set RTL direction
+            document.body.dir = 'rtl';
+            document.body.lang = 'ar';
+            document.documentElement.dir = 'rtl';
+            document.documentElement.lang = 'ar';
+
+            // Fix icon containers for initial Arabic layout
+            document.querySelectorAll('.icon-wrapper, .feature-item, .contact-item').forEach(container => {
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+            });
         });
 
-        // Enhanced Language Switcher
+        // Update the changeLanguage function
         function changeLanguage(lang) {
             document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
             document.body.lang = lang;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             
-            // Update active button with animation
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.remove('active');
-                btn.style.transform = 'scale(1)';
+            // Ensure all icons remain visible
+            document.querySelectorAll('.fas, .fab, .far, .fa, .feature-icon').forEach(icon => {
+                icon.style.display = 'inline-block';
+                icon.style.visibility = 'visible';
+                icon.style.opacity = '1';
             });
-            
-            const activeBtn = event.target;
-            activeBtn.classList.add('active');
-            activeBtn.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                activeBtn.style.transform = 'scale(1)';
-            }, 200);
 
-            // Toggle language spans with fade effect
+            // Update language display
             document.querySelectorAll('.en, .ar').forEach(span => {
                 if (span.classList.contains(lang)) {
-                    span.style.opacity = '0';
                     span.style.display = 'inline';
-                    setTimeout(() => {
                         span.style.opacity = '1';
-                    }, 50);
                 } else {
-                    span.style.opacity = '0';
-                    setTimeout(() => {
                         span.style.display = 'none';
-                    }, 200);
+                    span.style.opacity = '0';
                 }
             });
 
-            // Update section titles with animation
+            // Update active button state
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update section titles
             document.querySelectorAll('.section-title').forEach(title => {
                 const enText = title.getAttribute('data-en');
                 const arText = title.getAttribute('data-ar');
-                title.style.transform = 'scale(0.9)';
-                title.style.opacity = '0';
-                
-                setTimeout(() => {
                     title.textContent = lang === 'ar' ? arText : enText;
-                    title.style.transform = 'scale(1)';
-                    title.style.opacity = '1';
-                }, 200);
             });
 
-            // Handle icons for RTL/LTR
-            document.querySelectorAll('.fas, .fab').forEach(icon => {
+            // Fix icon containers
                 if (lang === 'ar') {
-                    // For Arabic, adjust icon positioning and alignment
-                    icon.style.transform = 'none';
-                    icon.style.marginRight = '0.5rem';
-                    icon.style.marginLeft = '0';
-                    // Add RTL-specific classes
-                    icon.classList.add('rtl-icon');
-                    // Handle specific icons that need to be flipped
-                    if (icon.classList.contains('fa-arrow-right') || 
-                        icon.classList.contains('fa-arrow-left') ||
-                        icon.classList.contains('fa-chevron-right') ||
-                        icon.classList.contains('fa-chevron-left')) {
-                        icon.style.transform = 'scaleX(-1)';
-                    }
-                } else {
-                    // For English, reset icon styles
-                    icon.style.transform = 'none';
-                    icon.style.marginRight = '0';
-                    icon.style.marginLeft = '0.5rem';
-                    // Remove RTL-specific classes
-                    icon.classList.remove('rtl-icon');
-                }
-            });
-
-            // Add RTL-specific styles for icons
-            const style = document.createElement('style');
-            style.textContent = `
-                .rtl-icon {
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-                [dir="rtl"] .rtl-icon {
-                    margin-right: 0.5rem;
-                    margin-left: 0;
-                }
-                [dir="rtl"] .btn i {
-                    margin-right: 0.5rem;
-                    margin-left: 0;
-                }
-                [dir="rtl"] .feature-item i {
-                    margin-right: 0.5rem;
-                    margin-left: 0;
-                }
-                [dir="rtl"] .contact-item i {
-                    margin-right: 0.5rem;
-                    margin-left: 0;
-                }
-            `;
-            document.head.appendChild(style);
+                document.querySelectorAll('.icon-wrapper, .feature-item, .contact-item').forEach(container => {
+                    container.style.display = 'flex';
+                    container.style.alignItems = 'center';
+                });
+            }
         }
 
         // Enhanced Smooth Scrolling
@@ -3142,6 +3303,32 @@
         if (toInput) {
             toInput.removeEventListener('input', () => {});
         }
+
+        function changeLanguage(lang) {
+            // Existing direction changes
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+            
+            // Force icon refresh
+            document.querySelectorAll('.fas, .fab, .far, .fa').forEach(icon => {
+                // Trigger a reflow
+                icon.style.display = 'none';
+                icon.offsetHeight; // Force reflow
+                icon.style.display = 'inline-block';
+            });
+
+            // Rest of your existing language switch code
+            // ... existing code ...
+        }
+
+        // Add this to ensure icons are properly initialized on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force initial icon rendering
+            if (typeof FontAwesome !== 'undefined') {
+                FontAwesome.dom.i2svg();
+            }
+        });
     </script>
 </body>
 </html>
