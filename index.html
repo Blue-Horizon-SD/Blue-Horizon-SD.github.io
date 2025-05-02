@@ -3543,23 +3543,14 @@
             toInput.removeEventListener('input', () => {});
         }
 
-        function changeLanguage(lang) {
-            // Existing direction changes
-            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            document.documentElement.lang = lang;
-            
-            // Force icon refresh
-            document.querySelectorAll('.fas, .fab, .far, .fa').forEach(icon => {
-                // Trigger a reflow
-                icon.style.display = 'none';
-                icon.offsetHeight; // Force reflow
-                icon.style.display = 'inline-block';
-            });
-
-            // Rest of your existing language switch code
-            // ... existing code ...
+        function setLanguage(lang) {
+          localStorage.setItem('language', lang);
+          // existing code...
         }
+   
+        // On page load
+        const savedLang = localStorage.getItem('language') || 'en';
+        setLanguage(savedLang);
 
         // Add this to ensure icons are properly initialized on page load
         document.addEventListener('DOMContentLoaded', function() {
