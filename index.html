@@ -54,7 +54,13 @@
             --transition-normal: 0.5s ease;
             --transition-slow: 0.8s ease;
         }
-
+        @media (max-width: 768px) {
+            nav,
+            .mobile-nav-toggle,
+            .mobile-menu-overlay {
+                display: none !important;
+            }
+        }
         * {
             margin: 0;
             padding: 0;
@@ -1197,7 +1203,7 @@
                 flex-direction: column;
                 gap: 2rem;
             }
-            
+
             .airline-logo {
                 width: 150px;
             }
@@ -2460,7 +2466,7 @@
         }
 
         /* Remove existing RTL icon rules and add these new rules */
-        
+
         /* Make icons independent of text direction */
         .icon-wrapper {
             display: inline-flex !important;
@@ -2660,8 +2666,9 @@
             flex-direction: row-reverse;
         }
 
-        [dir="rtl"] .nav-menu {
-            flex-direction: row-reverse;
+        /* Apply this style when in RTL mode */
+        body[dir="rtl"] .nav-menu {
+          flex-direction: row-reverse;
         }
 
         @media screen and (max-width: 768px) {
@@ -2772,11 +2779,11 @@
                 </a>
                 <nav>
                     <ul class="nav-menu">
-                        <li><a href="#home"><span class="en">Home</span><span class="ar" style="display: none;">الرئيسية</span></a></li>
-                        <li><a href="#destinations"><span class="en">Destinations</span><span class="ar" style="display: none;">الوجهات</span></a></li>
-                        <li><a href="#airlines"><span class="en">Airlines</span><span class="ar" style="display: none;">شركات الطيران</span></a></li>
-                        <li><a href="#testimonials"><span class="en">Testimonials</span><span class="ar" style="display: none;">آراء العملاء</span></a></li>
                         <li><a href="#contact"><span class="en">Contact</span><span class="ar" style="display: none;">اتصل بنا</span></a></li>
+                        <li><a href="#testimonials"><span class="en">Testimonials</span><span class="ar" style="display: none;">آراء العملاء</span></a></li>
+                        <li><a href="#airlines"><span class="en">Airlines</span><span class="ar" style="display: none;">شركات الطيران</span></a></li>
+                        <li><a href="#destinations"><span class="en">Destinations</span><span class="ar" style="display: none;">الوجهات</span></a></li>
+                        <li><a href="#home"><span class="en">Home</span><span class="ar" style="display: none;">الرئيسية</span></a></li>
                     </ul>
                 </nav>
                 <!-- <button class="mobile-menu-btn">
@@ -3154,13 +3161,13 @@
             try {
                 const registration = await navigator.serviceWorker.ready;
                 const permission = await Notification.requestPermission();
-                
+
                 if (permission === 'granted') {
                     const subscription = await registration.pushManager.subscribe({
                         userVisibleOnly: true,
                         applicationServerKey: 'YOUR_VAPID_PUBLIC_KEY' // Replace with your VAPID public key
                     });
-                    
+
                     // Send subscription to server
                     await fetch('/api/push-subscription', {
                         method: 'POST',
@@ -3214,7 +3221,7 @@
             const loader = document.querySelector('.loader');
             loader.classList.add('hidden');
             document.body.style.overflow = 'auto';
-            
+
             // Register PWA features after page load
             registerPushNotifications();
             registerBackgroundSync();
@@ -3239,7 +3246,7 @@
         const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
         const nav = document.querySelector('nav ul');
         const overlay = document.querySelector('.mobile-menu-overlay');
-        
+
         function toggleMobileMenu() {
             nav.classList.toggle('active');
             mobileNavToggle.classList.toggle('active');
@@ -3289,7 +3296,7 @@
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-            
+
             if (currentScroll <= 0) {
                 header.classList.remove('scrolled');
                 return;
@@ -3322,10 +3329,10 @@
                 el.style.display = 'inline';
                 el.style.opacity = '1';
             });
-            
+
             // Set active state for Arabic button
             document.getElementById('arButton').classList.add('active');
-            
+
             // Set RTL direction
             document.body.dir = 'rtl';
             document.body.lang = 'ar';
@@ -3345,7 +3352,7 @@
             document.body.lang = lang;
             document.documentElement.lang = lang;
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            
+
             // Ensure all icons remain visible
             document.querySelectorAll('.fas, .fab, .far, .fa, .feature-icon').forEach(icon => {
                 icon.style.display = 'inline-block';
@@ -3432,14 +3439,14 @@
         window.addEventListener('scroll', () => {
             const hero = document.querySelector('.hero');
             const scrolled = window.pageYOffset;
-            
+
             // Parallax background
             hero.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
-            
+
             // Parallax content
             const heroContent = document.querySelector('.hero-content');
             heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-            
+
             // Add depth effect
             heroContent.style.opacity = 1 - (scrolled * 0.003);
         });
@@ -3462,11 +3469,11 @@
         // Add hover effects to cards
         document.querySelectorAll('.destination-card, .feature-card, .testimonial-card').forEach(card => {
             card.classList.add('hover-lift');
-            
+
             card.addEventListener('mouseenter', () => {
                 card.style.transform = 'translateY(-10px)';
             });
-            
+
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'translateY(0)';
             });
@@ -3476,7 +3483,7 @@
         function createParticles() {
             const particlesContainer = document.createElement('div');
             particlesContainer.className = 'particles';
-            
+
             for (let i = 0; i < 50; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
@@ -3485,7 +3492,7 @@
                 particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
                 particlesContainer.appendChild(particle);
             }
-            
+
             document.querySelector('.hero').appendChild(particlesContainer);
         }
 
@@ -3547,7 +3554,7 @@
           localStorage.setItem('language', lang);
           // existing code...
         }
-   
+
         // On page load
         const savedLang = localStorage.getItem('language') || 'en';
         setLanguage(savedLang);
@@ -3572,7 +3579,7 @@
                 mobileMenuBtn.addEventListener('click', function() {
                     // Toggle the menu
                     navMenu.classList.toggle('show');
-                    
+
                     // Toggle the icon between bars and times (x)
                     const icon = this.querySelector('i');
                     if (icon.classList.contains('fa-bars')) {
