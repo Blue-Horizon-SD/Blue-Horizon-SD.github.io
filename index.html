@@ -30,6 +30,7 @@
     <link rel="manifest" href="manifest.json">
     <title>Blue Horizon - Your Travel Partner</title>
     <style>
+
         :root {
             --primary-color: #1a237e;
             --secondary-color: #2196f3;
@@ -2803,11 +2804,11 @@
         <div class="hero-content">
             <h1>
                 <span class="en">Discover the World with Blue Horizon</span>
-                <span class="ar" style="display: none;">اكتشف العالم مع الأفق الأزرق</span>
+                <span class="ar" style="display: none;">اكتشف العالم مع Blue Horizon</span>
             </h1>
             <p class="hero-subtitle">
-                <span class="en">Your trusted partner for premium international flights from Sudan. Experience luxury, comfort, and unforgettable adventures across the globe.</span>
-                <span class="ar" style="display: none;">شريكك الموثوق للرحلات الدولية المميزة من السودان. اختبر الفخامة والراحة والمغامرات التي لا تُنسى في جميع أنحاء العالم.</span>
+                <span class="en">Your trusted partner for premium international flights from Sudan. Experience luxury, comfort, and unforgettable adventures across the globe</span>
+                <span class="ar" style="display: none;">اكتشف العالم مع Blue Horizon شريكك الموثوق للرحلات الدولية المميزة من السودان. اختبر الفخامة والراحة والمغامرات التي لا تُنسى في جميع أنحاء العالم</span>
             </p>
             <div class="hero-buttons">
                 <a href="#destinations" class="btn btn-primary">
@@ -2841,7 +2842,10 @@
     </section>
 
     <section class="destinations" id="destinations">
-        <h2 class="section-title" data-en="Popular Destinations" data-ar="الوجهات الشائعة">Popular Destinations</h2>
+        <h2 class="section-title">
+          <span class="en">Popular Destinations</span>
+          <span class="ar">الوجهات الشائعة</span>
+        </h2>
         <div class="destinations-grid">
             <div class="destination-card">
                 <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Dubai" class="destination-image">
@@ -2937,7 +2941,12 @@
     </section>
 
     <section class="airlines" id="airlines">
-        <h2 class="section-title" data-en="Partner Airlines" data-ar="شركاؤنا من شركات الطيران">Partner Airlines</h2>
+        <div class="section-title" >
+            <span class="en">Partner Airlines</span>
+            <span class="ar">شركاؤنا من شركات الطيران</span>
+        </div>
+
+
         <div class="airlines-grid">
             <img src="tarco.png" alt="Tarco Airlines" class="airline-logo">
             <img src="badr.png" alt="Badr Airlines" class="airline-logo">
@@ -2945,7 +2954,10 @@
     </section>
 
     <section class="features">
-        <h2 class="section-title" data-en="Why Choose Us" data-ar="لماذا تختارنا">Why Choose Us</h2>
+        <div class="section-title" >
+            <span class="en">Why Choose Us</span>
+            <span class="ar">لماذا تختارنا؟</span>
+        </div>
         <div class="features-grid">
             <div class="feature-card">
                 <i class="fas fa-plane feature-icon"></i>
@@ -2975,7 +2987,10 @@
     </section>
 
     <section class="testimonials" id="testimonials">
-        <h2 class="section-title" data-en="What Our Customers Say" data-ar="آراء عملائنا">What Our Customers Say</h2>
+       <div class="section-title">
+           <span class="en">What Our Customers Say?</span>
+           <span class="ar">آراء عملائنا</span>
+       </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-content">
@@ -3020,7 +3035,10 @@
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="section-title" data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</h2>
+        <div class="section-title">
+            <span class="en">Get in Touch</span>
+            <span class="ar">تواصل معنا</span>
+        </div>
         <div class="contact-grid">
             <div class="contact-info">
                 <h3><span class="en">Contact Information</span><span class="ar" style="display: none;">معلومات الاتصال</span></h3>
@@ -3078,7 +3096,7 @@
             <div class="footer-section">
                 <h3><span class="en">About Us</span><span class="ar" style="display: none;">من نحن</span></h3>
                 <p><span class="en">Blue Horizon is your premier travel partner for international flights from Sudan. We combine expertise, reliability, and exceptional service to make your journey unforgettable.</span>
-                <span class="ar" style="display: none;">الأفق الأزرق هو شريكك المتميز للسفر للرحلات الدولية من السودان. نجمع بين الخبرة والموثوقية وخدمة استثنائية لجعل رحلتك لا تُنسى.</span></p>
+                <span class="ar" style="display: none;">Blue Horizon  شريكك المتميز للسفر للرحلات الدولية من السودان. نجمع بين الخبرة والموثوقية وخدمة استثنائية لجعل رحلتك لا تُنسى.</span></p>
             </div>
             <div class="footer-section">
                 <h3><span class="en">Quick Links</span><span class="ar" style="display: none;">روابط سريعة</span></h3>
@@ -3347,53 +3365,22 @@
         });
 
         // Update the changeLanguage function
-        function changeLanguage(lang) {
-            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            document.body.lang = lang;
-            document.documentElement.lang = lang;
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-            // Ensure all icons remain visible
-            document.querySelectorAll('.fas, .fab, .far, .fa, .feature-icon').forEach(icon => {
-                icon.style.display = 'inline-block';
-                icon.style.visibility = 'visible';
-                icon.style.opacity = '1';
-            });
-
-            // Update language display
-            document.querySelectorAll('.en, .ar').forEach(span => {
-                if (span.classList.contains(lang)) {
-                    span.style.display = 'inline';
-                        span.style.opacity = '1';
-                } else {
-                        span.style.display = 'none';
-                    span.style.opacity = '0';
-                }
-            });
-
-            // Update active button state
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-
-            // Update section titles
-            document.querySelectorAll('.section-title').forEach(title => {
-                const enText = title.getAttribute('data-en');
-                const arText = title.getAttribute('data-ar');
-                    title.textContent = lang === 'ar' ? arText : enText;
-            });
-
-            // Fix icon containers
-                if (lang === 'ar') {
-                document.querySelectorAll('.icon-wrapper, .feature-item, .contact-item').forEach(container => {
-                    container.style.display = 'flex';
-                    container.style.alignItems = 'center';
-                });
-            }
-        }
-
-        // Enhanced Smooth Scrolling
+function changeLanguage(lang) {
+  if (lang === 'en') {
+    document.documentElement.lang = 'en';
+    document.documentElement.dir = 'ltr';
+    document.querySelectorAll('.en').forEach(el => el.style.display = 'inline');
+    document.querySelectorAll('.ar').forEach(el => el.style.display = 'none');
+  } else {
+    document.documentElement.lang = 'ar';
+    document.documentElement.dir = 'rtl';
+    document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.ar').forEach(el => el.style.display = 'inline');
+  }
+  // Update active state for language indicator
+  document.querySelectorAll('.language-btn').forEach(button => button.classList.remove('active'));
+  document.querySelector(`.language-btn[onclick="changeLanguage('${lang}')"]`).classList.add('active');
+}        // Enhanced Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();

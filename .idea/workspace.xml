@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bce95a58-e9e1-40ca-8270-2becf8a3984f" name="Changes" comment="Fix The English Functionality">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +67,8 @@
       <option name="presentableId" value="Default" />
       <updated>1746147821234</updated>
       <workItem from="1746147822514" duration="1822000" />
-      <workItem from="1749052204754" duration="905000" />
+      <workItem from="1749052204754" duration="5179000" />
+      <workItem from="1749736901729" duration="9105000" />
     </task>
     <task id="LOCAL-00001" summary="Fix The English Functionality">
       <option name="closed" value="true" />
