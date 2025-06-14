@@ -165,7 +165,7 @@
             width: 100%;
             height: 3px;
             background: var(--gradient-accent);
-            transform-origin: 0%;
+            transform-origin: 0;
             transform: scaleX(0);
             z-index: 1002;
             transition: transform var(--transition-fast);
@@ -182,7 +182,7 @@
             z-index: 1001;
         }
 
-        .mobile-nav-toggle .hamburger {
+        .mobile-nav-toggle  {
             display: block;
             width: 25px;
             height: 3px;
@@ -191,8 +191,8 @@
             transition: all 0.3s ease;
         }
 
-        .mobile-nav-toggle .hamburger::before,
-        .mobile-nav-toggle .hamburger::after {
+        .mobile-nav-toggle ::before,
+        .mobile-nav-toggle ::after {
             content: '';
             position: absolute;
             width: 25px;
@@ -201,25 +201,25 @@
             transition: all 0.3s ease;
         }
 
-        .mobile-nav-toggle .hamburger::before {
+        .mobile-nav-toggle ::before {
             top: -8px;
         }
 
-        .mobile-nav-toggle .hamburger::after {
+        .mobile-nav-toggle ::after {
             bottom: -8px;
         }
 
         /* Active state for hamburger menu */
-        .mobile-nav-toggle.active .hamburger {
+        .mobile-nav-toggle.active  {
             background: transparent;
         }
 
-        .mobile-nav-toggle.active .hamburger::before {
+        .mobile-nav-toggle.active ::before {
             transform: rotate(45deg);
             top: 0;
         }
 
-        .mobile-nav-toggle.active .hamburger::after {
+        .mobile-nav-toggle.active ::after {
             transform: rotate(-45deg);
             bottom: 0;
         }
@@ -2768,8 +2768,8 @@
     </div>
 
     <div class="language-switcher">
-        <button class="language-btn" onclick="changeLanguage('en')">EN</button>
         <button class="language-btn active" onclick="changeLanguage('ar')" id="arButton">عربي</button>
+        <button class="language-btn" onclick="changeLanguage('en')">EN</button>
     </div>
 
     <header>
